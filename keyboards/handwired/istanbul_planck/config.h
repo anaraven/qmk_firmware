@@ -46,7 +46,7 @@
 
 #undef AUDIO_PIN
 #define AUDIO_PIN C6
-#define AUDIO_PIN_ALT B7
+// #define AUDIO_PIN_ALT B7
 #ifdef AUDIO_ENABLE
 #define STARTUP_SONG SONG(STARTUP_SOUND)
 #define AUDIO_ENABLE_TONE_MULTIPLEXING
@@ -55,7 +55,7 @@
 #endif
 
 /* number of backlight levels */
-// #define BACKLIGHT_PIN B7
+#define BACKLIGHT_PIN B7
 #ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 3
 #endif

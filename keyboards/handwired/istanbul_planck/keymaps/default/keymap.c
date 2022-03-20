@@ -65,11 +65,11 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define FUNCT MO(_FUNCTION)
+#define ESC_TAB LT(_ESC, KC_TAB)
 
 // L = .-.. 
 // R = .-. 
 // F = ..-. 
-
 #define LO E__NOTE(_C5), Q__NOTE(_C5),E__NOTE(_C5),E__NOTE(_C5)//, B__NOTE(_C3), W__NOTE(_C3), Q__NOTE(_C3)
 #define RA E__NOTE(_C5), Q__NOTE(_C5),E__NOTE(_C5)//, B__NOTE(_C3), W__NOTE(_C3), Q__NOTE(_C3)
 #define FUN E__NOTE(_C5),E__NOTE(_C5), Q__NOTE(_C5),E__NOTE(_C5)//, B__NOTE(_C3), W__NOTE(_C3), Q__NOTE(_C3)
@@ -93,8 +93,8 @@ enum planck_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_planck_grid( // default layer
-  QK_GESC,    KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
-  LT(_ESC, KC_TAB), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
+  QK_GESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
+  ESC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
   KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, RALT_T(KC_ENT),
   FUNCT, KC_LCTRL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT),
 
@@ -134,13 +134,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ),
 
 [_ADJUST] = LAYOUT_planck_grid( // mouse and other functions level, also activable with rasie+lower
-  _______, QK_BOOT, DB_TOGG, TERM_ON, TERM_OFF, _______, _______, _______, _______, _______, _______, KC_KB_POWER, 
+  _______, QK_BOOT, DB_TOGG, TERM_ON, TERM_OFF, BL_TOGG, BL_STEP, BL_BRTG, _______, _______, _______, KC_KB_POWER, 
   _______, AU_TOG,  _______, AU_ON, AU_OFF,  MU_TOG,   MU_MOD, _______, _______, _______, _______, KC_SLEP,
   _______, CK_TOGG, CK_DOWN, CK_UP, CK_RST,  _______, _______, _______, _______, _______, _______, KC_PWR,
   QK_BOOT, RESET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
 
 [_FUNCTION] = LAYOUT_planck_grid( // Function Key
-  _______, KC_BRID, KC_BRIU,   KC_F3, _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLU,
+  _______, KC_BRID, KC_BRIU,   KC_F3, _______, BL_DEC, BL_INC, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLU,
   _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PGUP, KC_VOLD,
   KC_CAPS, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDN, _______,
   _______, _______, _______, _______, TG(_NUM), _______, _______, TG(_NUM), _______, _______, _______, _______),

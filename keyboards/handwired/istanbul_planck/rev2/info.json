@@ -1,7 +1,18 @@
 {
-    "manufacturer": "Andres Aravena",
-    "keyboard_name": "handwired/istanbul_planck",
-    "maintainer": "Andres Aravena",
+    "diode_direction": "COL2ROW",
+    "features": {
+        "audio": false,
+        "backlight": false,
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": false,
+        "nkro": true,
+        "steno": false,
+        "unicode": true
+    },
+    "processor": "atmega32u4",
     "url": "",
     "layouts": {
         "LAYOUT_ortho_4x12": {

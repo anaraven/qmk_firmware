@@ -12,7 +12,7 @@
 //#define NO_DEBUG
 
 /* disable print */
-// #define NO_PRINT
+//#define NO_PRINT
 
 /* disable action features */
 //#define NO_ACTION_LAYER
@@ -27,35 +27,35 @@
 /* USB Device descriptor parameter */
 // #define VENDOR_ID       0xFEED
 // #define PRODUCT_ID      0x6060
-// #define DEVICE_VER      0x0001
+#define DEVICE_VER      0x0001
 // #define MANUFACTURER    Andres Aravena
-// #define PRODUCT         IstanbulPlanck
-// #define DESCRIPTION     Handwired Planck Keyboard
+#define PRODUCT         IstanbulPlanck
+#define DESCRIPTION     Handwired Planck Keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 12
 
 /* key matrix pins */
-// #define MATRIX_ROW_PINS { B6, B5, B4, D7 }
-// #define MATRIX_COL_PINS { F0, F1, F4, F5, F6, F7, B0, B1, B2, B3, D2, D3 }
-// #define UNUSED_PINS { D6, D5, D4, E6, C7, D0, D1 }
+#define MATRIX_ROW_PINS { B6, B5, B4, D7 }
+#define MATRIX_COL_PINS { F0, F1, F4, F5, F6, F7, B0, B1, B2, B3, D2, D3 }
+#define UNUSED_PINS { D6, D5, D4, E6, C7, D0, D1 }
 
 /* COL2ROW or ROW2COL */
 // #define DIODE_DIRECTION COL2ROW
 
-// #undef AUDIO_PIN
-// #define AUDIO_PIN C6
+#undef AUDIO_PIN
+#define AUDIO_PIN C6
 // #define AUDIO_PIN_ALT B7
 #ifdef AUDIO_ENABLE
-// #define STARTUP_SONG SONG(STARTUP_SOUND)
-// #define AUDIO_ENABLE_TONE_MULTIPLEXING
-// #define AUDIO_TONE_MULTIPLEXING_RATE_DEFAULT 10
+#define STARTUP_SONG SONG(STARTUP_SOUND)
+#define AUDIO_ENABLE_TONE_MULTIPLEXING
+#define AUDIO_TONE_MULTIPLEXING_RATE_DEFAULT 10
 #define AUDIO_CLICKY
 #endif
 
 /* number of backlight levels */
-// #define BACKLIGHT_PIN B7
+#define BACKLIGHT_PIN B7
 #ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 5
 #define BACKLIGHT_CAPS_LOCK

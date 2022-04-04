@@ -12,7 +12,7 @@ MCU = atmega32u4
 #     does not *change* the processor frequency - it should merely be updated to
 #     reflect the processor speed set externally so that the code can use accurate
 #     software delays.
-# F_CPU = 16000000
+F_CPU = 16000000
 
 #
 # LUFA specific
@@ -34,10 +34,10 @@ ARCH = AVR8
 F_USB = $(F_CPU)
 
 # Interrupt driven control endpoint task(+60)
-OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
+# OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 
 # Bootloader selection
-# BOOTLOADER = halfkay
+BOOTLOADER = caterina
 
 # Boot Section Size in *bytes*
 # OPT_DEFS += -DBOOTLOADER_SIZE=4096
@@ -56,3 +56,4 @@ SLEEP_LED_ENABLE = no  # Breathing sleep LED during USB suspend
 # BACKLIGHT_ENABLE = no  # Enable keyboard backlight functionality
 # AUDIO_ENABLE     = yes
 RGBLIGHT_ENABLE  = no
+# UNICODE_ENABLE = yes

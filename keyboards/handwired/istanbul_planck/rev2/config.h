@@ -30,9 +30,9 @@
 #define DEVICE_VER      0x0002
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { B4, B5, B6, B2 }
-#define MATRIX_COL_PINS { E6, D7, C6, D4, D0, D1, B3, B1, F7, F6, F5, F4 }
-#define UNUSED_PINS { D6, D5, D4, E6, C7, D0, D1 }
+#define MATRIX_ROW_PINS { B2, B6, B5, B4 }
+#define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3, D1, D0, D4, C6, D7, E6 }
+#define UNUSED_PINS { D2, D3 }
 
 /* COL2ROW or ROW2COL */
 // #define DIODE_DIRECTION COL2ROW

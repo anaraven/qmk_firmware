@@ -95,8 +95,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT( // default layer
   QK_GESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
   ESC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
-  KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, RALT_T(KC_ENT),
-  FUNCT, KC_LCTRL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT),
+  KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_UP, RALT_T(KC_ENT),
+  FUNCT, KC_LCTRL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, KC_SLSH, KC_LEFT, KC_DOWN, KC_RIGHT),
 
 // [_QWERTY] = LAYOUT(
 //   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DELETE,
   KC_DEL,  KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_F5,  KC_F6,  KC_UNDS,  KC_PLUS,  KC_LCBR, KC_RCBR, KC_PIPE,
   _______, KC_F7,   KC_F8, KC_F9,   KC_F10, KC_F11, KC_F12, KC_SCOLON, KC_COLN, KC_HOME, KC_END,  KC_ENT,
-  TG(_NUM), _______, _______, _______, _______, LALT(KC_SPC), LALT(KC_SPC), _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY),
+  TG(_NUM), _______, _______, _______, _______, LALT(KC_SPC), LALT(KC_SPC), _______, _______, _______, _______, _______),
 
 // [_LOWER] = LAYOUT(
 //   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC,
@@ -134,16 +134,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ),
 
 [_ADJUST] = LAYOUT( // mouse and other functions level, also activable with rasie+lower
-  _______, QK_BOOT, DB_TOGG, TERM_ON, TERM_OFF, BL_TOGG, BL_STEP, BL_BRTG, _______, _______, _______, KC_KB_POWER, 
+  _______, QK_BOOT, DB_TOGG, _______, _______, BL_TOGG, BL_STEP, BL_BRTG, _______, _______, _______, KC_KB_POWER, 
   _______, AU_TOG,  _______, AU_ON, AU_OFF,  MU_TOG,   MU_MOD, _______, _______, _______, _______, KC_SLEP,
   _______, CK_TOGG, CK_DOWN, CK_UP, CK_RST,  _______, _______, _______, _______, _______, _______, KC_PWR,
   QK_BOOT, RESET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______),
 
 [_FUNCTION] = LAYOUT( // Function Key
-  _______, KC_BRID, KC_BRIU,   KC_F3, _______, BL_DEC, BL_INC, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLU,
-  _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PGUP, KC_VOLD,
-  KC_CAPS, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDN, _______,
-  _______, _______, _______, _______, TG(_NUM), _______, _______, TG(_NUM), KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  _______, KC_BRID, KC_BRIU,   KC_F3, _______, BL_DEC, BL_INC, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
+  _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_MUTE,
+  KC_CAPS, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGUP, _______,
+  _______, _______, _______, _______, TG(_NUM), _______, _______, TG(_NUM), _______, KC_HOME, KC_PGDN, KC_END),
 
 [_ESC] = LAYOUT( // ESC Key used for accent and some special key/functions
   _______, UC_MOD, _______, UC(0x000E8), _______, KC_TILDE, _______, UC(0x000F9), UC(0x000EC), UC(0x000F2), _______, _______,
@@ -178,7 +178,7 @@ void matrix_init_user(){
   set_unicode_input_mode(UC_MAC);
 }
 
-uint32_t layer_state_set_user(uint32_t state) {
+layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 

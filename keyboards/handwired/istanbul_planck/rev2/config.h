@@ -25,13 +25,13 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x1b4f
-#define PRODUCT_ID      0x9206
-#define DEVICE_VER      0x0002
+// #define VENDOR_ID       0x1b4f
+// #define PRODUCT_ID      0x9206
+// #define DEVICE_VER      0x0002
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { B2, B6, B5, B4 }
-#define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3, D1, D0, D4, C6, D7, E6 }
+#define MATRIX_ROW_PINS { D1, D0, F5, F4 }
+#define MATRIX_COL_PINS { D4, C6, D7, E6, B4, B5, F6, F7, B1, B3, B2, B6 }
 // #define UNUSED_PINS { D2, D3 }
 
 /* COL2ROW or ROW2COL */

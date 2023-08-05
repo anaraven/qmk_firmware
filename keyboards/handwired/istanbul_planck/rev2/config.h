@@ -11,14 +11,6 @@
 /* disable debug print */
 //#define NO_DEBUG
 
-/* disable print */
-//#define NO_PRINT
-
-/* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
-
 #ifndef CONFIG_H
 #define CONFIG_H
 
@@ -34,9 +26,6 @@
 #define MATRIX_COL_PINS { D4, C6, D7, E6, B4, B5, F6, F7, B1, B3, B2, B6 }
 // #define UNUSED_PINS { D2, D3 }
 
-/* COL2ROW or ROW2COL */
-// #define DIODE_DIRECTION COL2ROW
-
 #undef AUDIO_PIN
 // #define AUDIO_PIN C6
 // #define AUDIO_PIN_ALT B7
@@ -44,5 +33,6 @@
 /* number of backlight levels */
 // #define BACKLIGHT_PIN B7
 
+#define RAPC_KEYS KC_LEFT_ALT, KC_RIGHT_SHIFT, KC_0
 
 #endif //CONFIG_H

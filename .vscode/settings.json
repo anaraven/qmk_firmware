@@ -28,5 +28,6 @@
     "[json]": {
 	    "editor.formatOnSave": false
     },
-    "cSpell.enabled": false
+    "cSpell.enabled": false,
+    "cmake.configureOnOpen": false
 }

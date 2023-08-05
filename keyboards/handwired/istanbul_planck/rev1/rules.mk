@@ -56,4 +56,4 @@ SLEEP_LED_ENABLE = no  # Breathing sleep LED during USB suspend
 # BACKLIGHT_ENABLE = no  # Enable keyboard backlight functionality
 # AUDIO_ENABLE     = yes
 RGBLIGHT_ENABLE  = no
-UNICODE_ENABLE = yes
+# UNICODE_ENABLE = yes

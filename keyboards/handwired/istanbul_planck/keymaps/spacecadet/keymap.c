@@ -15,8 +15,6 @@
 
 to compile
 make handwired/istanbul_planck:default:flash
-
-
  */
 
 #include QMK_KEYBOARD_H
@@ -40,8 +38,6 @@ make handwired/istanbul_planck:default:flash
 #undef UNICODE_SELECTED_MODES
 #define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
 // #define UNICODE_KEY_MAC  KC_RALT
-
-//extern keymap_config_t keymap_config;
 
 enum planck_layers {
   _QWERTY,

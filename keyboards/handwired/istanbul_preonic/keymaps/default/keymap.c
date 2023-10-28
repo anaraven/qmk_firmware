@@ -104,11 +104,11 @@ FUNCT,   KC_RCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE,KC_LEFT, KC_DOW
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_GRV,  KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR,   KC_ASTR, KC_LBRC, KC_RBRC, KC_DELETE,
-  KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR,   KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-  KC_DEL,  KC_F1,   KC_F2, KC_F3,   KC_F4,  KC_MINS, KC_EQL,  KC_UNDS,   KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-  _______, KC_F7,   KC_F8, KC_F9,   KC_F10, KC_F11,  KC_BSLS, KC_SCLN,   KC_COLN, KC_LBRC, KC_RBRC, KC_ENT,
-TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,   KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_GRV,  KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC, KC_DELETE,
+  KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
+  KC_DEL,  KC_LCBR, KC_RCBR,KC_LBRC, KC_RBRC,KC_MINS, KC_EQL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  _______, KC_F7,   KC_F8,  KC_F9,   KC_F10, KC_F11,  KC_BSLS, KC_SCLN, KC_COLN, KC_LBRC, KC_RBRC, KC_ENT,
+TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,  KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_RAISE] = LAYOUT( // raise level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -126,7 +126,7 @@ TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,   KC_HOME
   KC_GRV, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18,  KC_F19, KC_F20, _______,
   KC_DEL, KC_F1,  KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
   _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
- TG(_NUM), _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+ TG(_NUM), ____, ____, _______, ____, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_ADJUST] = LAYOUT( // activable with rasie+lower
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -141,8 +141,8 @@ TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,   KC_HOME
  * │   │rbt│   │   │   │   │   │   │   │   │   │   │
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
   _______, QK_BOOT, DB_TOGG,_______,_______, BL_TOGG, BL_STEP, BL_BRTG, _______, _______, _______, KC_KB_POWER,
-  _______, AU_TOG,  _______, AU_ON, AU_OFF,  MU_TOG,  MU_MOD, _______, _______, _______, _______, KC_SLEP,
-  _______, AU_TOG,  _______, AU_ON, AU_OFF,  MU_TOG,  MU_MOD, _______, _______, _______, _______, KC_SLEP,
+  _______, OU_USB,  OU_BT, OU_AUTO, _______, _______, _______, _______, _______, _______, _______, KC_SLEP,
+  _______, AU_TOGG, _______, AU_ON, AU_OFF,  MU_TOGG,  MI_MOD, _______, _______, _______, _______, KC_SLEP,
   _______, CK_TOGG, CK_DOWN, CK_UP, CK_RST, _______, _______, _______, _______, _______, _______, KC_PWR,
   _______, QK_RBT, _______,   ____,   ____, _______, _______, _______, _______, _______, _______, _______),
 
@@ -158,11 +158,11 @@ TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,   KC_HOME
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│num│ space │num│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_GRV, KC_BRID, KC_BRIU, KC_F3, ____, BL_DEC,  BL_INC,  KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
-  ____, ____, ____, UC(0x000E8), _______, KC_TILDE,_______, UC(0x000F9), UC(0x000EC), UC(0x000F2), _______, KC_MUTE,
-  ____, UC(0x000E0), UC(0x020AC), UC(0x000B0), ____, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_MUTE,
-  KC_CAPS, ____, _______, UC(0x30C4), ____, _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
-  ____, _______, _______, _______, TG(_NUM),____, _______, TG(_NUM), KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_GRV,  KC_BRID, KC_BRIU, KC_F3, ____, BL_DOWN,   BL_UP,  KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
+  _______, _______, _______,  ____, ____, KC_TILDE, _______, _______, _______, _______, _______, KC_MUTE,
+  _______, _______, _______,  ____, ____, _______,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_MUTE,
+  KC_CAPS, _______, _______,  ____, ____, _______,  _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
+  _______, _______, _______,  ____, TG(_NUM),____,  _______, TG(_NUM), KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_NUM] = LAYOUT(
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐

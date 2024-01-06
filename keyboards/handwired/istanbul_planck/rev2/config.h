@@ -14,7 +14,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include "config_common.h"
+// #include "config_common.h"
 
 /* USB Device descriptor parameter */
 // #define VENDOR_ID       0x1b4f

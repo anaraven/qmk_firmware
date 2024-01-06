@@ -90,7 +90,7 @@ QK_GESC, KC_1,    KC_2,    KC_3,    KC_4,  KC_5,   KC_6,   KC_7,  KC_8,    KC_9,
 CTR_TAB, KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSLS,
 KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT,
 KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, RALT_T(KC_ENT),
-FUNCT,   KC_RCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE,KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
+FUNCT,   KC_RCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
 
 [_LOWER] = LAYOUT( // lower level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -106,33 +106,33 @@ FUNCT,   KC_RCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE,KC_LEFT, KC_DOW
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
   KC_GRV,  KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC, KC_DELETE,
   KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-  KC_DEL,  KC_LCBR, KC_RCBR,KC_LBRC, KC_RBRC,KC_MINS, KC_EQL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-  _______, KC_F7,   KC_F8,  KC_F9,   KC_F10, KC_F11,  KC_BSLS, KC_SCLN, KC_COLN, KC_LBRC, KC_RBRC, KC_ENT,
-TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,  KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_DEL,  KC_LPRN, KC_RPRN,KC_LBRC,KC_RBRC, KC_MINS, KC_EQL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  _______, KC_F1,   KC_F2,  KC_F3,   KC_F4,  KC_F5,   KC_BSLS, KC_SCLN, KC_COLN, KC_LBRC, KC_RBRC, KC_ENT,
+TG(_NUM), _______, _______, _______, _______, KC_SPC,   KC_SPC,_______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_RAISE] = LAYOUT( // raise level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
- * │ ` │F1 │F2 │F3 │F4 │F5 │F6 │F7 │F8 │F9 │F10│F11│
+ * │ ` │F1 │F2 │F3 │F4 │F5 │F6 │F7 │F8 │F9 │F10│Del│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ \ │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │del│F1 │F2 │F3 │F4 │F5 │F6 │ - │ = │ [ │ ] │ \ │
+ * │del│ { │ } │F3 │F4 │ _ │ + │ - │ = │ [ │ ] │ \ │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Shf│F7 │F8 │F9 │F10│F11│F12│ \ │ § │Pup│Pdn│Ent│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
   KC_GRV, KC_F1,  KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10, _______,
-  KC_GRV, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18,  KC_F19, KC_F20, _______,
-  KC_DEL, KC_F1,  KC_F2, KC_F3, KC_F4,  KC_F5,  KC_F6,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-  _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
+  KC_GRV, KC_1,   KC_2,   KC_3,  KC_4,  KC_5,   KC_6,    KC_7,    KC_8,   KC_9,    KC_0,    _______,
+  KC_DEL, KC_LCBR,KC_RCBR,KC_F3, KC_F4, KC_UNDS,KC_PLUS, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
+ _______, KC_F7,  KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
  TG(_NUM), ____, ____, _______, ____, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_ADJUST] = LAYOUT( // activable with rasie+lower
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
- * │   │bot│dtg│   │   │Ltg│Lst│Lbr│   │   │   │Kpw│
+ * │   │USB│BT │AUT│   │Ltg│Lst│Lbr│   │   │   │Kpw│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │   │Atg│   │Aon│Aof│Mtg│Mmd│   │   │   │   │slp│
+ * │   │bot│dtg│   │   │Ltg│Lst│Lbr│   │   │   │Kpw│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │   │Atg│   │Aon│Aof│Mtg│Mmd│   │   │   │   │slp│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
@@ -140,46 +140,46 @@ TG(_NUM), _______, _______, _______, _______, KC_SPC, KC_SPC, _______,  KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │   │rbt│   │   │   │   │   │   │   │   │   │   │
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  _______, QK_BOOT, DB_TOGG,_______,_______, BL_TOGG, BL_STEP, BL_BRTG, _______, _______, _______, KC_KB_POWER,
-  _______, OU_USB,  OU_BT, OU_AUTO, _______, _______, _______, _______, _______, _______, _______, KC_SLEP,
-  _______, AU_TOGG, _______, AU_ON, AU_OFF,  MU_TOGG,  MI_MOD, _______, _______, _______, _______, KC_SLEP,
-  _______, CK_TOGG, CK_DOWN, CK_UP, CK_RST, _______, _______, _______, _______, _______, _______, KC_PWR,
-  _______, QK_RBT, _______,   ____,   ____, _______, _______, _______, _______, _______, _______, _______),
+  ____, OU_USB,  OU_BT, OU_AUTO,   ____, BL_TOGG, BL_STEP, BL_BRTG, ____, ____, ____, KC_KB_POWER,
+  ____, QK_BOOT, DB_TOGG,  ____,   ____, BL_TOGG, BL_STEP, BL_BRTG, ____, ____, ____, KC_KB_POWER,
+  ____, AU_TOGG, _______, AU_ON, AU_OFF, MU_TOGG,  MI_MOD, _______, ____, ____, ____, KC_SLEP,
+  ____, CK_TOGG, CK_DOWN, CK_UP, CK_RST, _______, _______, _______, ____, ____, ____, KC_PWR,
+  ____, QK_RBT, _______,   ____,   ____, _______, _______, _______, ____, ____, ____, ____),
 
-[_FUNCTION] = LAYOUT( // Function Key f
+[_FUNCTION] = LAYOUT( // Function Key
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │ ` │Bdw│Bup│F3 │   │dec│inc│prv│ply│nxt│Vdn│Vup│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │   │   │   │ è │   │ ~ │   │ ù │ ì │ ò │   │Mut│
+ * │   │   │   │   │   │ ~ │   │   │   │   │   │Mut│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │   │ à │ € │ ° │   │   │lft│dwn│up │rgt│   │Mut│
+ * │   │F1 │F2 │F3 │F4 │F5 │lft│dwn│up │rgt│   │Mut│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Cps│   │   │ツ │   │   │   │   │prv│ply│nxt│   │
+ * │Cps│F7 │F8 │F9 │F10│F11│F12│   │prv│ply│nxt│   │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│num│ space │num│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
   KC_GRV,  KC_BRID, KC_BRIU, KC_F3, ____, BL_DOWN,   BL_UP,  KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
   _______, _______, _______,  ____, ____, KC_TILDE, _______, _______, _______, _______, _______, KC_MUTE,
-  _______, _______, _______,  ____, ____, _______,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_MUTE,
-  KC_CAPS, _______, _______,  ____, ____, _______,  _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
+  _______,   KC_F1, KC_F2,   KC_F3, KC_F4,  KC_F5,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_MUTE,
+  KC_CAPS,   KC_F7, KC_F8,   KC_F9, KC_F10, KC_F11, KC_F12,  _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
   _______, _______, _______,  ____, TG(_NUM),____,  _______, TG(_NUM), KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_NUM] = LAYOUT(
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
- * │Qwr│   │Up │   │   │   │   │ 7 │ 8 │ 9 │ / │   │
+ * │Qwr│ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ / │   │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │   │lft│dwn│rgt│   │   │   │ 4 │ 5 │ 6 │ * │ = │
+ * │   │   │Up │   │   │   │   │ 4 │ 5 │ 6 │ * │ = │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │   │   │   │   │   │   │   │ 1 │ 2 │ 3 │ - │   │
+ * │   │lft│ ↓ │rgt│   │   │   │ 1 │ 2 │ 3 │ - │   │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │   │   │   │   │   │   │   │ 0 │ . │ + │ , │ret│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Num│Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  TO(_QWERTY),_______, ____ ,_______, _______, _______, _______, KC_P7, KC_P8, KC_P9, KC_PSLS, _______,
-  _______, _______,   KC_UP, _______, _______, _______, _______, KC_P4, KC_P5, KC_P6, KC_PAST, KC_PEQL,
-  _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, KC_P1, KC_P2, KC_P3, KC_PMNS, _______,
-  _______, _______,_______, _______, _______, _______, _______,  KC_P0, KC_COMM, KC_PDOT, KC_PPLS, KC_PENT,
+  TO(_QWERTY), KC_P1, KC_P2, KC_P3,  KC_P4, KC_P5, KC_P6, KC_P7, KC_P8, KC_P9, KC_PSLS, _______,
+  _______, _______, KC_UP,   _______, ____,  ____,  ____, KC_P4, KC_P5, KC_P6, KC_PAST, KC_PEQL,
+  _______, KC_LEFT, KC_DOWN, KC_RGHT, ____,  ____,  ____, KC_P1, KC_P2, KC_P3, KC_PMNS, _______,
+  _______, _______,_______, _______,  ____,  ____,  ____, KC_P0, KC_COMM, KC_PDOT, KC_PPLS, KC_PENT,
   TG(_NUM), _______,_______, _______, _______, _______, _______, _______, ____, ____, ____, ____),
 };
 

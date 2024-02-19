@@ -1,4 +1,4 @@
-/* Copyright 2022 Andres Aravena
+/* Copyright 2022, 2023, 2024 Andres Aravena
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,8 +37,6 @@ make handwired/istanbul_planck:default:flash
 #define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
 // #define UNICODE_KEY_MAC  KC_RALT
 
-//extern keymap_config_t keymap_config;
-
 enum planck_layers {
   _QWERTY,
   _LOWER,
@@ -59,8 +57,7 @@ enum planck_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-// #define FUNCT MO(_FUNCTION)
-#define FUNCT LT(_FUNCTION, KC_LBRC)
+#define FUNCT MO(_FUNCTION)
 #define CTR_TAB CTL_T(KC_TAB)
 #define LALTSPC LALT_T(KC_SPC)
 #define RALTSPC RALT_T(KC_SPC)
@@ -83,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 QK_GESC, KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSPC,
 CTR_TAB, KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT,
 KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, RALT_T(KC_ENT),
-FUNCT,   SC_LCPO, SC_RAPC, LCMDBRC, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
+FUNCT,   KC_RCTL, KC_LOPT, KC_LCMD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
 
 [_LOWER] = LAYOUT( // lower level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -95,10 +92,10 @@ FUNCT,   SC_LCPO, SC_RAPC, LCMDBRC, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DO
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DELETE,
+  KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   KC_DEL,  KC_LPRN, KC_RPRN,KC_LBRC,KC_RBRC, KC_MINS, KC_EQL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
   _______, KC_F1,   KC_F2,  KC_F3,   KC_F4,  KC_F5,   KC_F6,   KC_SCLN, KC_COLN, KC_LBRC, KC_RBRC, KC_ENT,
-TG(_NUM), _______, _______, _______, _______, LALTSPC, RALTSPC,_______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_RAISE] = LAYOUT( // raise level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -110,10 +107,10 @@ TG(_NUM), _______, _______, _______, _______, LALTSPC, RALTSPC,_______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_GRV, KC_1,   KC_2,   KC_3,  KC_4,  KC_5,   KC_6,    KC_7,    KC_8,   KC_9,    KC_0,    _______,
-  KC_DEL, KC_LCBR,KC_RCBR,KC_F3, KC_F4, KC_UNDS,KC_PLUS, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
- _______, KC_F7,  KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
- TG(_NUM), ____, ____, _______, ____, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_GRV, KC_1,   KC_2,   KC_3,  KC_4,  KC_5,   KC_6,    KC_7,    KC_8,   KC_9,    KC_0,   KC_DELETE,
+  KC_DEL,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_UNDS,KC_PLUS,KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
+ _______, KC_F7,  KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
+ TG(_NUM), ____, ____, _______, _______,LALTSPC,RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_ADJUST] = LAYOUT( // activable with rasie+lower
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -128,7 +125,7 @@ TG(_NUM), _______, _______, _______, _______, LALTSPC, RALTSPC,_______, KC_HOME,
   ____, QK_BOOT, DB_TOGG,  ____,   ____, BL_TOGG, BL_STEP, BL_BRTG, ____, ____, ____, KC_KB_POWER,
   ____, AU_TOGG, _______, AU_ON, AU_OFF, MU_TOGG,  MI_MOD, _______, ____, ____, ____, KC_SLEP,
   ____, CK_TOGG, CK_DOWN, CK_UP, CK_RST, _______, _______, _______, ____, ____, ____, KC_PWR,
-  ____, QK_RBT, _______,   ____,   ____, _______, _______, _______, ____, ____, ____, ____),
+  ____, QK_RBT, _______,   ____,   ____, _______, _______, _______, ____, ____, ____, _______),
 
 [_FUNCTION] = LAYOUT( // Function Key
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -140,7 +137,7 @@ TG(_NUM), _______, _______, _______, _______, LALTSPC, RALTSPC,_______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│num│ space │num│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  _______, KC_BRID, KC_BRIU, KC_F3, ____, BL_DOWN,   BL_UP,  KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
+  KC_GRV,  KC_BRID, KC_BRIU, KC_F3, ____, BL_DOWN,   BL_UP,  KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
   _______,   KC_F1, KC_F2,   KC_F3, KC_F4,  KC_F5,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_MUTE,
   KC_CAPS,   KC_F7, KC_F8,   KC_F9, KC_F10, KC_F11, KC_F12,  _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
   _______, _______, _______,  ____, TG(_NUM),____,  _______, TG(_NUM), KC_HOME, KC_PGDN, KC_PGUP, KC_END),
@@ -155,10 +152,10 @@ TG(_NUM), _______, _______, _______, _______, LALTSPC, RALTSPC,_______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Num│Ctr│Alt│Cmd│Lwr│ space │Rai│ 0 │ . │ + │ , │
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  TO(_QWERTY), KC_P1, KC_P2, KC_P3,  KC_P4, KC_P5, KC_P6, KC_P7, KC_P8, KC_P9, KC_PSLS, _______,
-  _______, _______, KC_UP,   _______, ____,  ____,  ____, KC_P4, KC_P5, KC_P6, KC_PAST, KC_PEQL,
-  _______, KC_LEFT, KC_DOWN, KC_RGHT, ____,  ____,  ____, KC_P1, KC_P2, KC_P3, KC_PMNS, KC_PENT,
-  TG(_NUM), _______,_______, _______, ____,  ____,  ____,  ____, KC_P0, KC_PDOT, KC_PPLS, KC_COMM),
+  TO(_QWERTY), KC_P1, KC_P2, KC_P3,  KC_P4, KC_P5, KC_P6,   KC_P7, KC_P8, KC_P9, KC_P0,   _______,
+  _______, _______, KC_UP,   _______, ____,  ____, KC_PAST, KC_P4, KC_P5, KC_P6, KC_PPLS, KC_PEQL,
+  _______, KC_LEFT, KC_DOWN, KC_RGHT, ____,  ____, KC_PMNS, KC_P1, KC_P2, KC_P3, KC_PDOT, KC_PENT,
+  TG(_NUM), _______,_______, _______, ____,  ____, KC_COMM, KC_P0,  ____,  ____,    ____,  ____),
 };
 
 void matrix_init_user(){

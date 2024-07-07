@@ -122,7 +122,7 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │   │rbt│   │   │   │   │   │   │   │   │   │   │
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  ____, QK_BOOT, DB_TOGG,  ____,   ____, BL_TOGG, BL_STEP, BL_BRTG, ____, ____, ____, KC_KB_POWER,
+  ____, QK_BOOT, DB_TOGG,  ____,   ____, BL_TOGG, BL_STEP, BL_BRTG, UG_TOGG, UG_PREV, UG_NEXT, KC_KB_POWER,
   ____, AU_TOGG, _______, AU_ON, AU_OFF, MU_TOGG,  MI_MOD, _______, ____, ____, ____, KC_SLEP,
   ____, CK_TOGG, CK_DOWN, CK_UP, CK_RST, _______, _______, _______, ____, ____, ____, KC_PWR,
   ____, QK_RBT, _______,   ____,   ____, _______, _______, _______, ____, ____, ____, _______),
@@ -158,9 +158,9 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
   TG(_NUM), _______,_______, _______, ____,  ____, KC_COMM, KC_P0,  ____,  ____,    ____,  ____),
 };
 
-void matrix_init_user(){
-  set_unicode_input_mode(UNICODE_MODE_MACOS);
-}
+// void matrix_init_user(){
+//   set_unicode_input_mode(UNICODE_MODE_MACOS);
+// }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);

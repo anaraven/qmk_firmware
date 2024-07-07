@@ -38,7 +38,7 @@
 // #define DIODE_DIRECTION COL2ROW
 
 #undef AUDIO_PIN
-#define AUDIO_PIN D4
+// #define AUDIO_PIN D4
 // #define AUDIO_PIN_ALT B7
 #ifdef AUDIO_ENABLE
 #define STARTUP_SONG SONG(STARTUP_SOUND)
@@ -48,11 +48,16 @@
 #endif
 
 /* number of backlight levels */
-#define BACKLIGHT_PIN D6
+#undef BACKLIGHT_PIN
+// #define BACKLIGHT_PIN D6
 #ifdef BACKLIGHT_PIN
-#define BACKLIGHT_LEVELS 5
-#define BACKLIGHT_CAPS_LOCK
-#define BACKLIGHT_BREATHING
+// #define BACKLIGHT_LEVELS 5
+// #define BACKLIGHT_CAPS_LOCK
+// #define BACKLIGHT_BREATHING
 #endif
 
+// The pin connected to the data pin of the LEDs (WS2812)
+#define WS2812_DI_PIN D4
+#define WS2812_LED_COUNT 8
+#define RGBLIGHT_LED_COUNT 8
 #endif //CONFIG_H

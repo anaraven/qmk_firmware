@@ -36,10 +36,6 @@
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 12
 
-/* key matrix pins */
-// #define MATRIX_ROW_PINS { B6, B5, B4, D7 }
-// #define MATRIX_COL_PINS { F0, F1, F4, F5, F6, F7, B0, B1, B2, B3, D2, D3 }
-// #define UNUSED_PINS { D6, D5, D4, E6, C7, D0, D1 }
 
 /* COL2ROW or ROW2COL */
 // #define DIODE_DIRECTION COL2ROW
@@ -55,12 +51,14 @@
 #endif
 
 /* number of backlight levels */
-// #define BACKLIGHT_PIN B7
+/*
+#define BACKLIGHT_PIN B7
 #ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 5
-#define BACKLIGHT_CAPS_LOCK
+// #define BACKLIGHT_CAPS_LOCK
 #define BACKLIGHT_BREATHING
 #endif
+*/
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
@@ -79,4 +77,22 @@
 /* prevent stuck modifiers */
 // #define PREVENT_STUCK_MODIFIERS
 
+// The pin connected to the data pin of the LEDs (WS2812)
+#define RGBLIGHT_EFFECT_ALTERNATING
+#define RGBLIGHT_EFFECT_BREATHING
+#define RGBLIGHT_EFFECT_CHRISTMAS
+#define RGBLIGHT_EFFECT_KNIGHT
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#define RGBLIGHT_EFFECT_RGB_TEST
+#define RGBLIGHT_EFFECT_SNAKE
+#define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#define RGBLIGHT_EFFECT_TWINKLE
+#define RGBLIGHT_HUE_STEP 10
+#define RGBLIGHT_SAT_STEP 17
+#define RGBLIGHT_VAL_STEP 17
+#define RGBLIGHT_DEFAULT_SAT 100
+#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RGB_TEST
+#define RGBLIGHT_DEFAULT_HUE 180
+#define RGBLIGHT_DEFAULT_VAL 1
 #endif //CONFIG_H

@@ -51,9 +51,8 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  FUNCTION,
-  ADJUST,
-  MEH,
+  // FUNCTION,
+  // ADJUST,
 };
 
 #define LOWER MO(_LOWER)
@@ -81,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 QK_GESC, KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSPC,
 CTR_TAB, KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT,
 KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, RALT_T(KC_ENT),
-UG_TOGG, UG_PREV, UG_VALU, UG_VALD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
+FUNCT,   LOWER, RAISE, KC_LCMD, KC_RCTL, KC_SPC, KC_SPC, KC_LOPT, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
 
 [_LOWER] = LAYOUT( // lower level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -163,6 +162,57 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
 //   set_unicode_input_mode(UNICODE_MODE_MACOS);
 // }
 
+// Light LEDs 6 to 9 and 12 to 15 red when caps lock is active. Hard to ignore!
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_BLUE},
+    {4, 1, HSV_BLUE}
+);
+const rgblight_segment_t PROGMEM my_lower_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1, HSV_CYAN},
+    {7, 1, HSV_CYAN}
+);
+const rgblight_segment_t PROGMEM my_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_ORANGE},
+    {6, 1, HSV_ORANGE}
+);
+const rgblight_segment_t PROGMEM my_function_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {2, 1, HSV_GREEN},
+    {5, 1, HSV_GREEN}
+);
+
+const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_RED},
+    {4, 1, HSV_RED}
+);
+
+const rgblight_segment_t PROGMEM my_number_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_YELLOW},
+    {4, 1, HSV_YELLOW}
+);
+
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_capslock_layer,
+    my_lower_layer,    // Overrides caps lock layer
+    my_raise_layer,    // Overrides other layers
+    my_function_layer,    // Overrides other layers
+    my_adjust_layer,    // Overrides other layers
+    my_number_layer     // Overrides other layers
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_enable_noeeprom();
+    rgblight_sethsv_noeeprom(0,0,0);
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
+
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+    return true;
+}
+
+/*
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
@@ -173,9 +223,24 @@ void keyboard_post_init_user(void) {
     rgblight_sethsv_noeeprom(HSV_CYAN);
     rgblight_mode_noeeprom(RGBLIGHT_MODE_RAINBOW_SWIRL);
 }
+*/
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    // return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(4, layer_state_cmp(state, _ADJUST));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _LOWER));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _RAISE));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _FUNCTION));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _NUM));
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    // return state;
+}
 
 /*
-
 bool music_mask_user(uint16_t keycode) {
   switch (keycode) {
     case RAISE:

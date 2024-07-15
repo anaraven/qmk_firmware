@@ -20,6 +20,7 @@ make handwired/istanbul_planck:default:flash
 #include QMK_KEYBOARD_H
 
 #include "quantum.h"
+#include "rgblight.h"
 
 #define LAYOUT( \
 	K000, K001, K002, K003, K004, K005, K006, K007, K008, K009, K010, K011, \
@@ -50,9 +51,8 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  FUNCTION,
-  ADJUST,
-  MEH,
+  // FUNCTION,
+  // ADJUST,
 };
 
 #define LOWER MO(_LOWER)
@@ -162,13 +162,85 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
 //   set_unicode_input_mode(UNICODE_MODE_MACOS);
 // }
 
+// Light LEDs 6 to 9 and 12 to 15 red when caps lock is active. Hard to ignore!
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_BLUE},
+    {4, 1, HSV_BLUE}
+);
+const rgblight_segment_t PROGMEM my_lower_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1, HSV_CYAN},
+    {7, 1, HSV_CYAN}
+);
+const rgblight_segment_t PROGMEM my_raise_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 1, HSV_ORANGE},
+    {6, 1, HSV_ORANGE}
+);
+const rgblight_segment_t PROGMEM my_function_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {2, 1, HSV_GREEN},
+    {5, 1, HSV_GREEN}
+);
+
+const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_RED},
+    {4, 1, HSV_RED}
+);
+
+const rgblight_segment_t PROGMEM my_number_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_YELLOW},
+    {4, 1, HSV_YELLOW}
+);
+
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_capslock_layer,
+    my_lower_layer,    // Overrides caps lock layer
+    my_raise_layer,    // Overrides other layers
+    my_function_layer,    // Overrides other layers
+    my_adjust_layer,    // Overrides other layers
+    my_number_layer     // Overrides other layers
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_enable_noeeprom();
+    rgblight_sethsv_noeeprom(0,0,0);
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
+
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.caps_lock);
+    return true;
+}
+
+/*
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 
-/*
+void keyboard_post_init_user(void) {
+    rgblight_enable_noeeprom();
+    rgblight_sethsv_noeeprom(HSV_CYAN);
+    rgblight_mode_noeeprom(RGBLIGHT_MODE_RAINBOW_SWIRL);
+}
+*/
 
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    // return state;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(4, layer_state_cmp(state, _ADJUST));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _LOWER));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _RAISE));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _FUNCTION));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _NUM));
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    // return state;
+}
+
+/*
 bool music_mask_user(uint16_t keycode) {
   switch (keycode) {
     case RAISE:

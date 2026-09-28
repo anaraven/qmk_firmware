@@ -87,30 +87,30 @@ FUNCT,   KC_RCTL, KC_LOPT, KC_LCMD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DO
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │Del│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │del│ { │ } │ ; │ : │ _ │ + │ - │ = │ [ │ ] │Ent│
+ * │Ctr│ [ │ ] │ \ │ = │ - │Lft│Dnw│Up │Rgt│PSc│ ` │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Shf│F7 │F8 │F9 │F10│F11│F12│ \ │ § │   │   │ \ │
+ * │Shf│ { │ } │ | │ + │ _ │Hom│Pdn│Pup│End│Ins│ ~ │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,    KC_8,    KC_9,    KC_0, _______,
-  KC_DEL,KC_LCBR,KC_RCBR,KC_SCLN,KC_COLN,KC_UNDS,KC_PLUS,KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, _______,
- _______,  KC_F7,  KC_F8,  KC_F9, KC_F10, KC_F11, KC_F12,KC_PIPE, _______, _______, _______, KC_BSLS,
- TG(_NUM), ____, ____, _______, _______,LALTSPC,RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_GRV,   KC_1,   KC_2,   KC_3,    KC_4,   KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_DEL,
+  KC_LCTL,KC_LBRC, KC_RBRC, KC_BSLS, KC_EQL, KC_MINS, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_COLN,_______,
+  _______,KC_LCBR, KC_RCBR, KC_PIPE, KC_PLUS,KC_UNDS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_SCLN,_______,
+ TG(_NUM), ____, _______, _______, _______,LALTSPC,  KC_SPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_LOWER] = LAYOUT( // lower level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │ ~ │ ! │ @ │ # │ $ │ % │ ^ │ & │ * │ ( │ ) │Del│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Del│ ( │ ) │ [ │ ] │ - │ = │ _ │ + │ { │ } │ | │
+ * │Ctr│ [ │ ] │ \ │ = │ - │Lft│Dnw│Up │Rgt│PSc│ ` │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Shf│F1 │F2 │F3 │F4 │F5 │F6 │ ; │ : │ [ │ ] │Ent│
+ * │Shf│ { │ } │ | │ + │ _ │Hom│Pdn│Pup│End│Ins│ ~ │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
   KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-  KC_DEL,  KC_LPRN, KC_RPRN,KC_LBRC,KC_RBRC, KC_MINS, KC_EQL,  KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, _______,
-  _______, KC_F1,   KC_F2,  KC_F3,   KC_F4,  KC_F5,   KC_F6,   KC_SCLN, KC_COLN, KC_LBRC, KC_RBRC, KC_PIPE,
+  KC_LCTL,KC_LBRC, KC_RBRC, KC_BSLS, KC_EQL, KC_MINS, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_COLN, _______,
+  _______,KC_LCBR, KC_RCBR, KC_PIPE, KC_PLUS,KC_UNDS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_SCLN, _______,
 TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_ADJUST] = LAYOUT( // activable with rasie+lower
@@ -196,9 +196,9 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_capslock_layer,
     my_lower_layer,    // Overrides caps lock layer
     my_raise_layer,    // Overrides other layers
-    my_function_layer,    // Overrides other layers
-    my_adjust_layer,    // Overrides other layers
-    my_number_layer     // Overrides other layers
+    my_function_layer,  // Overrides other layers
+    my_adjust_layer,   // Overrides other layers
+    my_number_layer    // Overrides other layers
 );
 
 void keyboard_post_init_user(void) {

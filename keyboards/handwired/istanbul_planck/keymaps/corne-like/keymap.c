@@ -26,7 +26,7 @@ make handwired/istanbul_planck:default:flash
 	K000, K001, K002, K003, K004, K005, K006, K007, K008, K009, K010, K011, \
 	K100, K101, K102, K103, K104, K105, K106, K107, K108, K109, K110, K111, \
 	K200, K201, K202, K203, K204, K205, K206, K207, K208, K209, K210, K211, \
-	K300, K301, K302, K303, K304, K305, K306, K307, K308, K309, K310, K311  \
+	K300, K301, K302, K303, K304, K305, K306, K307, K308, K309, K310, K311 \
 ) { \
 	{ K000, K001, K002, K003, K004, K005, K006, K007, K008, K009, K010, K011}, \
 	{ K100, K101, K102, K103, K104, K105, K106, K107, K108, K109, K110, K111}, \
@@ -78,40 +78,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Lft│Dnw│Up │Rgt│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
 
-QK_GESC, KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC,
-CTR_TAB, KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,   KC_SCLN, RALT_T(KC_ENT),
-KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M, KC_COMM, KC_DOT,  KC_SLSH, KC_QUOT,
-FUNCT,   KC_RCTL, KC_LOPT, KC_LCMD,LOWER,LALTSPC,RALTSPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
+QK_GESC, KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSPC,
+CTR_TAB, KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, RALT_T(KC_ENT),
+KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_QUOT,
+FUNCT,   KC_RCTL, KC_LOPT, KC_LCMD, LOWER, LALTSPC, RALTSPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT),
 
 [_RAISE] = LAYOUT( // raise level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │Del│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Del│Hom│Pdn│Pup│End│   │Lft│Dnw│Up │Rgt│ ; │Ent│
+ * │Ctr│ - │ = │ [ │ ] │ \ │Lft│Dnw│Up │Rgt│PSc│ ` │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Shf│PSc│Ins│   │   │   │   │   │ , │ . │ : │ ~ │
+ * │Shf│ _ │ + │ { │ } │ | │Hom│Pdn│Pup│End│Ins│ ~ │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,    KC_8,    KC_9,    KC_0, _______,
-  KC_DEL,KC_LCBR,KC_RCBR,KC_SCLN,KC_COLN,KC_UNDS,KC_LEFT,KC_DOWN,   KC_UP,KC_RIGHT, KC_BSLS, _______,
- _______,  KC_F7,  KC_F8,  KC_F9, KC_F10, KC_F11, KC_F12,KC_PIPE, _______, _______, _______, KC_BSLS,
- TG(_NUM), ____, ____, _______, _______,LALTSPC,RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_DEL,
+  KC_LCTL,KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_INS, KC_TILD,
+  _______,KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_PSCR, KC_GRV,
+ TG(_NUM), ____, _______, _______, _______,LALTSPC,  RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_LOWER] = LAYOUT( // lower level
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │ ~ │ ! │ @ │ # │ $ │ % │ ^ │ & │ * │ ( │ ) │Del│
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Del│ ( │ ) │ { │ } │   │ - │ = │ [ │ ] │ \ │Ent│
+ * │Ctr│ - │ = │ [ │ ] │ \ │Lft│Dnw│Up │Rgt│PSc│ ` │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
- * │Shf│   │   │   │   │   │ _ │ + │ { │ } │ | │ ` │
+ * │Shf│ _ │ + │ { │ } │ | │Hom│Pdn│Pup│End│Ins│ ~ │
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│Lwr│ space │Rai│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-  KC_DEL,  KC_LPRN, KC_RPRN,KC_LBRC,KC_RBRC, KC_MINS, KC_MINS, KC_EQL,  KC_LCBR, KC_RCBR, KC_BSLS, _______,
-  _______, KC_F1,   KC_F2,  KC_F3,   KC_F4,  KC_F5,   KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_PIPE, KC_GRV,
-TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
+  KC_TILD, KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
+  KC_LCTL,KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_INS, KC_TILD,
+ _______,KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_PSCR, KC_GRV,
+TG(_NUM), _______, _______, _______, _______, LALTSPC, RALTSPC, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_ADJUST] = LAYOUT( // activable with rasie+lower
 /* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -123,7 +123,7 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │   │rbt│   │   │   │   │   │   │   │   │   │   │
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  ____, QK_BOOT, _______,  ____,   ____, BL_TOGG, BL_STEP, BL_BRTG, UG_TOGG, UG_PREV, UG_NEXT, KC_KB_POWER,
+  ____, QK_BOOT, _______, ____, ____, BL_TOGG, BL_STEP, BL_BRTG, UG_TOGG, UG_PREV, UG_NEXT, KC_KB_POWER,
   ____, _______, _______, AU_ON, AU_OFF, _______, _______, _______, ____, ____, ____, KC_SLEP,
   ____, _______, _______, CK_UP, CK_RST, _______, _______, _______, ____, ____, ____, KC_PWR,
   ____, QK_RBT, _______,   ____,   ____, _______, _______, _______, ____, ____, ____, _______),
@@ -138,9 +138,9 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Fn │Ctr│Alt│Cmd│num│ space │num│Hom│Pdn│Pup│End│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-  KC_GRV,  KC_BRID, KC_BRIU, KC_F3, ____, BL_DOWN,   BL_UP,  KC_MPRV, KC_MPLY, KC_MNXT, KC_STOP, KC_DEL,
-  KC_NUHS,   KC_F1, KC_F2,   KC_F3, KC_F4,  KC_F5,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_VOLD, KC_VOLU,
-  KC_CAPS,   KC_F7, KC_F8,   KC_F9, KC_F10, KC_F11, KC_F12,  _______, _______, KC_EJCT, KC_INS,  KC_MUTE,
+  KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, BL_DOWN, BL_UP, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLD, KC_VOLU,
+  KC_CAPS,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_EJCT, KC_INS,  KC_MUTE,
   _______, _______, _______,  ____, TG(_NUM),____,  _______, TG(_NUM),KC_HOME, KC_PGDN, KC_PGUP, KC_END),
 
 [_NUM] = LAYOUT(
@@ -153,10 +153,10 @@ TG(_NUM), _______, _______, _______, _______,LALTSPC, RALTSPC, _______, KC_HOME,
  * ├───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤
  * │Num│Ctr│Alt│Cmd│Lwr│ space │ 0 │Lft│Dnw│Up │Rgt│
  * └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ */
-TO(_QWERTY), KC_P1, KC_P2, KC_P3, KC_P4,    KC_P5,   KC_P6, KC_P7, KC_P8, KC_P9,   KC_P0, _______,
-_______, _______, _______,  ____, ____,   KC_PSLS, KC_PAST, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PENT,
+TO(_QWERTY), KC_P1, KC_P2,  KC_P3, KC_P4,  KC_P5,   KC_P6, KC_P7, KC_P8, KC_P9,   KC_P0, _______,
+_______, _______, _______, ____, ____,KC_PSLS, KC_PAST, KC_P4, KC_P5, KC_P6, KC_PMNS, KC_PENT,
 _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,KC_PCMM, KC_PDOT, KC_P1, KC_P2, KC_P3, KC_PPLS, KC_PEQL,
-TG(_NUM), _______,_______,  ____, ____,   ____, _______, KC_P0,  ____,  ____, _______, ____),
+TG(_NUM), _______,_______, ____, ____,   ____, _______, KC_P0,  ____,  ____, _______, ____),
 };
 
 // void matrix_init_user(){
@@ -196,14 +196,14 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_capslock_layer,
     my_lower_layer,    // Overrides caps lock layer
     my_raise_layer,    // Overrides other layers
-    my_function_layer,    // Overrides other layers
-    my_adjust_layer,    // Overrides other layers
-    my_number_layer     // Overrides other layers
+    my_function_layer, // Overrides other layers
+    my_adjust_layer,   // Overrides other layers
+    my_number_layer    // Overrides other layers
 );
 
 void keyboard_post_init_user(void) {
     rgblight_enable_noeeprom();
-    rgblight_sethsv_noeeprom(0,0,0);
+    rgblight_sethsv_noeeprom(0, 0, 0);
     // Enable the LED layers
     rgblight_layers = my_rgb_layers;
 }
